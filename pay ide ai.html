@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xyferzz Not Mods</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-y:auto;
+
+    background:
+    radial-gradient(circle at top,#3b0764 0%,#0a0014 35%,#050008 100%);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px 15px;
+
+    color:white;
+    position:relative;
+}
+
+/* SCROLL */
+body::-webkit-scrollbar{
+    width:5px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background:#9333ea;
+    border-radius:20px;
+}
+
+/* PARTICLE */
+.particle{
+    position:fixed;
+    border-radius:50%;
+    background:#c084fc;
+    opacity:0.18;
+    filter:blur(12px);
+    animation:float linear infinite;
+    z-index:0;
+}
+
+.particle:nth-child(1){
+    width:130px;
+    height:130px;
+    left:5%;
+    animation-duration:14s;
+}
+
+.particle:nth-child(2){
+    width:80px;
+    height:80px;
+    left:45%;
+    animation-duration:10s;
+}
+
+.particle:nth-child(3){
+    width:150px;
+    height:150px;
+    left:80%;
+    animation-duration:17s;
+}
+
+.particle:nth-child(4){
+    width:60px;
+    height:60px;
+    left:65%;
+    animation-duration:9s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(120vh);
+    }
+    100%{
+        transform:translateY(-140vh);
+    }
+}
+
+/* CONTAINER */
+.container{
+    width:100%;
+    max-width:420px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(192,132,252,0.25);
+
+    border-radius:30px;
+
+    padding:28px;
+
+    position:relative;
+    z-index:5;
+
+    box-shadow:
+    0 0 25px rgba(147,51,234,0.3),
+    0 0 60px rgba(147,51,234,0.2);
+}
+
+/* GLOW TOP */
+.container::before{
+    content:"";
+    position:absolute;
+    top:-2px;
+    left:50%;
+    transform:translateX(-50%);
+    width:70%;
+    height:2px;
+    background:#d8b4fe;
+
+    box-shadow:
+    0 0 15px #d8b4fe,
+    0 0 35px #d8b4fe;
+}
+
+/* FOTO */
+.profile{
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    object-fit:cover;
+
+    border:4px solid rgba(192,132,252,0.7);
+
+    display:block;
+    margin:auto;
+
+    box-shadow:
+    0 0 20px #9333ea,
+    0 0 45px rgba(168,85,247,0.8);
+
+    transition:0.4s;
+}
+
+.profile:hover{
+    transform:scale(1.05) rotate(2deg);
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin-top:18px;
+    font-size:26px;
+    font-weight:900;
+
+    background:linear-gradient(90deg,#ffffff,#d8b4fe,#9333ea);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 25px rgba(192,132,252,0.5);
+}
+
+/* MINI TEXT */
+.desc{
+    text-align:center;
+    margin-top:8px;
+    color:#cfcfcf;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+/* CARD */
+.card{
+    margin-top:22px;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(192,132,252,0.15);
+
+    border-radius:22px;
+
+    padding:18px;
+
+    box-shadow:
+    inset 0 0 15px rgba(255,255,255,0.02),
+    0 0 15px rgba(147,51,234,0.12);
+}
+
+/* TITLE CARD */
+.card-title{
+    font-size:15px;
+    margin-bottom:15px;
+    color:#e9d5ff;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* PAYMENT BUTTON NEW */
+.payment-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:10px;
+}
+
+.pay-btn{
+    position:relative;
+
+    padding:16px;
+
+    border:none;
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(168,85,247,0.18),
+        rgba(88,28,135,0.1)
+    );
+
+    border:1px solid rgba(216,180,254,0.25);
+
+    color:white;
+
+    font-size:14px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 0 15px rgba(147,51,234,.12);
+}
+
+.pay-btn span{
+    display:block;
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.pay-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transform:translateX(-120%);
+    transition:.5s;
+}
+
+.pay-btn:hover::before{
+    transform:translateX(120%);
+}
+
+.pay-btn:hover{
+    transform:
+    translateY(-4px)
+    scale(1.03);
+
+    border:1px solid rgba(216,180,254,0.7);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(192,132,252,.28),
+        rgba(126,34,206,.18)
+    );
+
+    box-shadow:
+    0 0 25px rgba(192,132,252,.35),
+    0 0 45px rgba(147,51,234,.2);
+}
+
+/* RESULT */
+.result{
+    display:none;
+
+    margin-top:18px;
+
+    background:rgba(0,0,0,0.35);
+
+    border:1px solid rgba(192,132,252,0.2);
+
+    border-radius:18px;
+
+    padding:16px;
+
+    text-align:center;
+
+    animation:fade .4s ease;
+}
+
+.result img{
+    width:220px;
+    max-width:90%;
+
+    display:block;
+    margin:18px auto;
+
+    border-radius:15px;
+
+    border:2px solid rgba(216,180,254,0.4);
+
+    box-shadow:
+    0 0 20px rgba(168,85,247,0.5);
+}
+
+.copy-btn{
+    margin-top:14px;
+
+    padding:12px 18px;
+
+    border:none;
+    border-radius:14px;
+
+    background:#9333ea;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.copy-btn:hover{
+    transform:scale(1.05);
+    background:#a855f7;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:16px;
+
+    margin:10px 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.02)
+    );
+
+    border:1px solid rgba(192,132,252,0.2);
+
+    color:white;
+    font-size:13px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.35s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(168,85,247,0.25),
+        rgba(126,34,206,0.15)
+    );
+}
+
+/* FOOTER */
+.footer{
+    margin-top:25px;
+    text-align:center;
+    font-size:12px;
+    color:#bdbdbd;
+}
+
+</style>
+</head>
+<body>
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+<div class="container">
+
+    <!-- FOTO -->
+    <img src="https://files.catbox.moe/z051er.png" class="profile">
+
+    <!-- TITLE -->
+    <div class="title">
+        Xyferzz Not Mods 💥👾
+    </div>
+
+    <div class="desc">
+        It all starts from yourself, not from them.
+    </div>
+
+    <!-- MUSIC -->
+    <div class="card">
+
+        <div class="card-title">
+            🎵 Music Player
+        </div>
+
+        <button class="btn"
+        onclick="toggleMusic()"
+        id="musicBtn">
+            ▶ PLAY MUSIC
+        </button>
+
+        <audio id="music" loop>
+            <source src="https://files.catbox.moe/fbv7ea.m4a" type="audio/mp3">
+        </audio>
+
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="card">
+
+        <div class="card-title">
+            💸 Payment Method
+        </div>
+
+        <div class="payment-buttons">
+
+            <button class="pay-btn"
+            onclick="showDana()">
+                <span>🔵</span>
+                DANA
+            </button>
+
+            <button class="pay-btn"
+            onclick="showGopay()">
+                <span>🟢</span>
+                GOPAY
+            </button>
+
+            <button class="pay-btn"
+            onclick="showQR()">
+                <span>📄</span>
+                QRIS
+            </button>
+
+            <button class="pay-btn"
+            onclick="showOvo()">
+                <span>🟣</span>
+                OVO
+            </button>
+
+        </div>
+
+        <div class="result" id="paymentResult"></div>
+
+    </div>
+
+    <!-- SOSMED -->
+    <div class="card">
+
+        <div class="card-title">
+            🌐 Media Sosial Owner
+        </div>
+
+        <button class="btn"
+        onclick="openLink('https://tiktok.com/@nokii_clipper.com')">
+            Tiktok
+        </button>
+
+        <button class="btn"
+        onclick="openLink('https://instagram.com')">
+            Instagram
+        </button>
+
+        <button class="btn"
+        onclick="openLink('https://t.me/XyferzzNM')">
+            Channel Telegram
+        </button>
+
+        <button class="btn"
+        onclick="openLink('https://whatsapp.com/channel/0029VbBGfoNCHDybbXFUBN3B')">
+            Channel WhatsApp
+        </button>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        @Xyferzz Not Mods
+    </div>
+
+</div>
+
+<script>
+
+const result =
+document.getElementById("paymentResult");
+
+/* PAYMENT */
+function showDana(){
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🔵 Nomor Dana</h3>
+        <br>
+        <p>083849483384</p>
+
+        <button class="copy-btn"
+        onclick="copyText('083849483384')">
+            Copy Number
+        </button>
+    `;
+}
+
+function showGopay(){
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🟢 Nomor Gopay</h3>
+        <br>
+        <p>083849483384</p>
+
+        <button class="copy-btn"
+        onclick="copyText('083849483384')">
+            Copy Number
+        </button>
+    `;
+}
+
+function showOvo(){
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🟣 Nomor OVO</h3>
+        <br>
+        <p>Waduh Belum ada Nih 🛜</p>
+
+        <button class="copy-btn"
+        onclick="copyText('Kan udah gua bilang ga ada 🤬')">
+            Copy Number
+        </button>
+    `;
+}
+function showQR(){
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>📷 QRIS Payment</h3>
+
+        <img src="https://files.catbox.moe/ndctq6.png">
+
+        <button class="copy-btn"
+        onclick="downloadQR()">
+            Lihat QR
+        </button>
+    `;
+}
+
+function downloadQR(){
+
+    const link = document.createElement('a');
+
+    link.href =
+    'https://files.catbox.moe/ndctq6.png';
+
+    link.download =
+    'QRIS-Xyferzz.png';
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+}
+
+function copyText(text){
+
+    navigator.clipboard.writeText(text)
+    .then(() => {
+
+        alert("Berhasil di copy!");
+
+    })
+    .catch(() => {
+
+        const input =
+        document.createElement("textarea");
+
+        input.value = text;
+
+        document.body.appendChild(input);
+
+        input.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(input);
+
+        alert("Berhasil di copy!");
+    });
+}
+
+/* OPEN LINK */
+function openLink(link){
+    window.open(link,"_blank");
+}
+
+/* MUSIC */
+const music =
+document.getElementById("music");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let play = false;
+
+function toggleMusic(){
+
+    if(play){
+
+        music.pause();
+
+        musicBtn.innerHTML =
+        "▶ PLAY MUSIC";
+
+    }else{
+
+        music.play();
+
+        musicBtn.innerHTML =
+        "⏸ PAUSE MUSIC";
+    }
+
+    play = !play;
+}
+
+</script>
+
+</body>
+</html>
